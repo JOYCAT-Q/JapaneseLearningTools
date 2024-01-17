@@ -30,11 +30,7 @@ def trainAndcheck(randomdatakey, randomdatavalue):
     else:
         print("your answer is error")
         return False
-    
-
-if __name__ == "__main__":
-
-    data = loaddata()
+def showdata(data):
     count=0
     print("the whole fifty tones : ") 
     for key in list(data.keys()):
@@ -43,25 +39,35 @@ if __name__ == "__main__":
         if count==10:
             count=0
             print("\n")
-    print("\nNotes:\n\
+    print("\n\nNotes:\n\
           \tthese words pronunciation is special:\n\
           'し'读:'xi', 'ち'读:'qi', 'つ'读:'ci', 'ふ'读:'fu', 'r'读:'l'\n\
           \tn 作为辅音")
-    
     if sys.stdin.isatty():
         input("\npress <enter> to clear these tones")
-    else:    
-        print("无法在非终端环境中读取输入")
-    
     system("cls")
-    if sys.stdin.isatty():
-        times = input("input the times that you want to train: ")
-    else:    
-        print("无法在非终端环境中读取输入")
-    i=0
-    for _ in range(int(times)):
-        randomdatakey, randomdatavalue = randomload(data)
-        if trainAndcheck(randomdatakey, randomdatavalue):
-            i=i+1
+
+
+if __name__ == "__main__":
+    data = loaddata()
+    showdata(data)
+    while True:
+        if sys.stdin.isatty():
+            next = input("do you want to start the train ?(y/n)[default is y,press <enter>]: ")
+        else:    
+            print("无法在非终端环境中读取输入")
         
-    print("accuracy: ",i/int(times))
+        if next.lower() == "y" or not next:
+            if sys.stdin.isatty():
+                times = input("input the times that you want to train: ")
+            else:    
+                print("无法在非终端环境中读取输入")
+            i=0
+            for _ in range(int(times)):
+                randomdatakey, randomdatavalue = randomload(data)
+                if trainAndcheck(randomdatakey, randomdatavalue):
+                    i=i+1
+            print("accuracy: ",i/int(times))
+            print("\n\n\n")
+        else:
+            break
