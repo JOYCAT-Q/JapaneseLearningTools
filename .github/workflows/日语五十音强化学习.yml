@@ -8,10 +8,10 @@ permissions:
 
 jobs:
   pyinstaller-build:
-    runs-on:windows-latest
+    runs-on: windows-latest
     steps:
-      - name:Create Executable
-        uses:sayyid5416/pyinstaller@v1
+      - name: Create Executable
+        uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.10'
           spec: 'Japanesefifty.py'
