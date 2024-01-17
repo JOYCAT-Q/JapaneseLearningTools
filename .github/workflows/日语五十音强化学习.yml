@@ -1,4 +1,5 @@
-name:日语五十音强化学习Windows版
+name: 日语五十音强化学习Windows版
+
 on:
   workflow_dispatch:
 
