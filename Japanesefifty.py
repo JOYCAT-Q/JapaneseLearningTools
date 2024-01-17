@@ -29,6 +29,7 @@ def trainAndcheck(randomdatakey, randomdatavalue):
         return True
     else:
         print("your answer is error")
+        print("the word correct pronunciation is : ", randomdatavalue)
         return False
 def showdata(data):
     count=0
