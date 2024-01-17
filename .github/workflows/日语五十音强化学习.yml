@@ -1,0 +1,18 @@
+name:日语五十音强化学习Windows版
+on:
+  workflow_dispatch:
+
+permissions:
+  contents:read
+
+jobs:
+  pyinstaller-build:
+    runs-on:windows-latest
+    steps:
+      - name:Create Executable
+        uses:sayyid5416/pyinstaller@v1
+        with:
+          python_ver: '3.10'
+          spec: 'Japanesefifty.py'
+          upload_exe_with_name: 'Japanese_fifty_tones'
+          options: --onefile, --name "Japanese_fifty_tones", --windowed
