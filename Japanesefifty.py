@@ -1,6 +1,7 @@
 from random import choice
 from os import system
-from time import sleep
+import sys  
+
 def loaddata():
     fiftytones = {"あ" : "a","か" : "ka","さ" : "sa","た" : "ta","な" : "na","は" : "ha","ま" : "ma","や" : "ya","ら" : "ra","わ" : "wa",
                   "い" : "i","き" : "ki","し" : "shi","ち" : "chi","に" : "ni","ひ" : "hi","み" : "mi","い" : "i","り" : "ri","い" : "i",
@@ -18,7 +19,10 @@ def trainAndcheck(randomdatakey, randomdatavalue):
     print("\n\n")
     print("this time the word is : ", randomdatakey)
     # print("the word pronunciation is : ", randomdatavalue)
-    pronunc = input("please input the Roman pronunciation : ")
+    if sys.stdin.isatty():
+        pronunc = input("please input the Roman pronunciation : ")
+    else:    
+        print("无法在非终端环境中读取输入")
     pronunc = pronunc.lower()
     if pronunc==str(randomdatavalue):
         print("your answer is true")
@@ -43,10 +47,17 @@ if __name__ == "__main__":
           \tthese words pronunciation is special:\n\
           'し'读:'xi', 'ち'读:'qi', 'つ'读:'ci', 'ふ'读:'fu', 'r'读:'l'\n\
           \tn 作为辅音")
-    #input("\npress <enter> to clear these tones")
-    sleep(5)
+    
+    if sys.stdin.isatty():
+        input("\npress <enter> to clear these tones")
+    else:    
+        print("无法在非终端环境中读取输入")
+    
     system("cls")
-    times = input("input the times that you want to train: ")
+    if sys.stdin.isatty():
+        times = input("input the times that you want to train: ")
+    else:    
+        print("无法在非终端环境中读取输入")
     i=0
     for _ in range(int(times)):
         randomdatakey, randomdatavalue = randomload(data)
