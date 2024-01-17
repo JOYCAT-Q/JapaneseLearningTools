@@ -16,4 +16,4 @@ jobs:
           python_ver: '3.10'
           spec: 'Japanesefifty.py'
           upload_exe_with_name: 'Japanese_fifty_tones'
-          options: --onefile, --name "Japanese_fifty_tones", --windowed
+          options: --onefile, --name "Japanese_fifty_tones"
