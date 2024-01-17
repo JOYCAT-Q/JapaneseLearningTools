@@ -1,5 +1,6 @@
 from random import choice
 from os import system
+from time import sleep
 def loaddata():
     fiftytones = {"あ" : "a","か" : "ka","さ" : "sa","た" : "ta","な" : "na","は" : "ha","ま" : "ma","や" : "ya","ら" : "ra","わ" : "wa",
                   "い" : "i","き" : "ki","し" : "shi","ち" : "chi","に" : "ni","ひ" : "hi","み" : "mi","い" : "i","り" : "ri","い" : "i",
@@ -42,7 +43,8 @@ if __name__ == "__main__":
           \tthese words pronunciation is special:\n\
           'し'读:'xi', 'ち'读:'qi', 'つ'读:'ci', 'ふ'读:'fu', 'r'读:'l'\n\
           \tn 作为辅音")
-    input("\npress <enter> to clear these tones")
+    #input("\npress <enter> to clear these tones")
+    sleep(5)
     system("cls")
     times = input("input the times that you want to train: ")
     i=0
